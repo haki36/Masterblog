@@ -11,7 +11,6 @@
         <div class="page-header">
             <div>
                 <h1>Welcome to My Flask Blog!</h1>
-                <p class="subtitle">Read the latest posts from our authors.</p>
             </div>
             <a class="primary-link" href="{{ url_for('add') }}">+ Add New Post</a>
         </div>
@@ -21,11 +20,12 @@
                 <h2>{{ post.title }}</h2>
                 <p class="author"><em>Written by: {{ post.author }}</em></p>
                 <p>{{ post.content }}</p>
+
                 <div class="post-actions">
+                    <a class="secondary-button" href="{{ url_for('update', post_id=post['id']) }}">Update Post</a>
                     <a class="delete-link" href="{{ url_for('delete', post_id=post['id']) }}">Delete Post</a>
                 </div>
             </div>
-
         {% endfor %}
     </div>
 </body>
